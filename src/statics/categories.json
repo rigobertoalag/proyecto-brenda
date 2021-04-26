@@ -1,0 +1,22 @@
+{
+    "category":[
+        {
+            "id": 1,
+            "name": "test category 1",
+            "description": "La descripcion va aqui 1",
+            "img": "https://picsum.photos/600/600"
+        },
+        {
+            "id": 2,
+            "name": "test category 2",
+            "description": "La descripcion va aqui 2",
+            "img": "https://picsum.photos/600/600"
+        },
+        {
+            "id": 3,
+            "name": "test category 3",
+            "description": "La descripcion va aqui 3",
+            "img": "https://picsum.photos/600/600"
+        }
+    ]
+}
