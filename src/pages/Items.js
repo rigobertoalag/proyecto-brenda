@@ -1,7 +1,12 @@
 import React from 'react'
 
+import {items} from '../statics/items.json'
+import Grid from '../components/Grid'
+
 export default function Items(){
     return(
-        <div>Hola desde Items</div>
+        <main>
+            <Grid data={items} isItem='1'/>
+        </main>
     )
 }

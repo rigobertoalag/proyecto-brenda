@@ -17,6 +17,18 @@
             "name": "test category 3",
             "description": "La descripcion va aqui 3",
             "img": "https://picsum.photos/600/600"
+        },
+        {
+            "id": 4,
+            "name": "test category 4",
+            "description": "La descripcion va aqui 4",
+            "img": "https://picsum.photos/600/600"
+        },
+        {
+            "id": 5,
+            "name": "test category 5",
+            "description": "La descripcion va aqui 5",
+            "img": "https://picsum.photos/600/600"
         }
     ]
 }
