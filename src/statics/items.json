@@ -1,9 +1,16 @@
-[
-    {
-        "item": {
+{
+    "items":[
+        {
             "id": 1,
-            "name": "test item",
-            "category": 1
+            "name": "test item 1",
+            "description": "La descripcion va aqui 1",
+            "img": "https://picsum.photos/650/650"
+        },
+        {
+            "id": 2,
+            "name": "test item 2",
+            "description": "La descripcion va aqui 2",
+            "img": "https://picsum.photos/650/650"
         }
-    }
-]
+    ]
+}
