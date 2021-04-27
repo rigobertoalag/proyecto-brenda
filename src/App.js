@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 import Categories from './pages/Categories'
 import Items from './pages/Items'
+import Cart from './pages/Cart'
 
 function App() {
   return (
@@ -18,15 +19,23 @@ function App() {
       <Router>
         <NavBar />
           <Switch>
+
             <Route exact path="/">
               <HomePage />
             </Route>
+
             <Route path="/categories">
               <Categories />
             </Route>
+
             <Route path="/items">
               <Items />
             </Route>
+
+            <Route path="/cart">
+              <Cart />
+            </Route>
+
           </Switch>
       </Router>
     </div>
