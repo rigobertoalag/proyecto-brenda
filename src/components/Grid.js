@@ -12,7 +12,7 @@ export default function Grid({data, isItem}) {
                     <p>{d.description}</p>
                     {
                         isItem ? 
-                        <a className="info-link" onClick={()=> alert('Se añadio al carrito')}>Añadir al carrito</a>
+                        <Link to='/items#'><a className="info-link" onClick={()=> alert('Se añadio al carrito')}>Añadir al carrito</a></Link>
                         :
                         <Link to='/items'><a className="info-link">Ver mas..</a></Link>
                     }
