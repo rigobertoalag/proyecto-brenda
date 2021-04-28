@@ -1,7 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function NavBar() {
+
+    /** */
+    const [data, setData] = useState('')
+    console.log(data)
+    /** */
 
     let location = useLocation();
 
@@ -23,6 +28,7 @@ export default function NavBar() {
         <div className="topnav" id="myTopnav">
             <Link to='/'><p className="active">Inicio</p></Link>
             <ShowCart />
+            <button onClick={()=>setData('Hola')}>Test</button>
         </div>
     )
 }
