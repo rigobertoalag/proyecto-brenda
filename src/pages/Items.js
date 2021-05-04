@@ -6,7 +6,7 @@ import Grid from '../components/Grid'
 export default function Items(){
     return(
         <main>
-            <Grid data={items} isItem='1'/>
+            <Grid dataItems={items} isItem='1'/>
         </main>
     )
 }

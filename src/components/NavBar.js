@@ -1,22 +1,29 @@
 import React, {useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function NavBar() {
-
+export default function NavBar(dataItems) {
+console.log('desde dataItems', dataItems)
     /** */
-    const [data, setData] = useState('')
+    const data = [dataItems]
+
     function cachingData(){
-        localStorage.setItem('myCat', 'Tom')
-        alert('se añadio')
+        if(!data.length === 0){
+            alert('No hay nada en el carrito')
+        }else{
+            localStorage.setItem('Cart', JSON.stringify({dataItems}))
+            alert('se añadio')
+            console.log('desde la funcion: ', data)
+        }
     }
 
     function cachingDelete(){
-        localStorage.removeItem('myCat');
+        localStorage.removeItem('Cart')
         alert('Se borro')
     }
 
-    const cat = localStorage.getItem('myCat');
-    console.log(cat)
+    const cart = localStorage.getItem('Cart');
+    console.log('desde data:', data)
+    console.log('desde cart:', JSON.stringify(cart))
     /** */
 
     let location = useLocation();
@@ -39,7 +46,7 @@ export default function NavBar() {
         <div className="topnav" id="myTopnav">
             <Link to='/'><p className="active">Inicio</p></Link>
             <ShowCart />
-            <button onClick={cachingData}>Test añadir</button>
+            <button onClick={cachingData}>Ver carrito</button>
             <button onClick={cachingDelete}>Test eliminar</button>
         </div>
     )
