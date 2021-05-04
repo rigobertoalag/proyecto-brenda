@@ -5,7 +5,18 @@ export default function NavBar() {
 
     /** */
     const [data, setData] = useState('')
-    console.log(data)
+    function cachingData(){
+        localStorage.setItem('myCat', 'Tom')
+        alert('se añadio')
+    }
+
+    function cachingDelete(){
+        localStorage.removeItem('myCat');
+        alert('Se borro')
+    }
+
+    const cat = localStorage.getItem('myCat');
+    console.log(cat)
     /** */
 
     let location = useLocation();
@@ -28,7 +39,8 @@ export default function NavBar() {
         <div className="topnav" id="myTopnav">
             <Link to='/'><p className="active">Inicio</p></Link>
             <ShowCart />
-            <button onClick={()=>setData('Hola')}>Test</button>
+            <button onClick={cachingData}>Test añadir</button>
+            <button onClick={cachingDelete}>Test eliminar</button>
         </div>
     )
 }
