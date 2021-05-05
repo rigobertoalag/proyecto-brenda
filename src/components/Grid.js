@@ -4,24 +4,25 @@ import { Link } from 'react-router-dom'
 export default function Grid({ dataItems, dataCategories, isItem }) {
 
     const [data, setData] = useState([])
-    useEffect(()=>{
-        addToCart()
+    const [data2, setData2] = useState([])
+    useEffect(() => {
         console.log('desde useefect', data)
-        localStorage.setItem('Cart', JSON.stringify(data))
-    },[data])
+    }, [data])
 
-    const handleClick = value => () => {
-        setData(value)
-    }
-
-    function addToCart() {
+    function addToCart(id, category) {
         const cartStorage = JSON.parse(localStorage.getItem('Cart'));
         if (!cartStorage) {
-            
+            const item = ([{ 'itemID': id, 'categoryID': category }])
+            console.log('item', item)
+            setData(item)
+            localStorage.setItem('Cart', JSON.stringify(item))
         } else {
             const prevCartItems = JSON.parse([localStorage.getItem('Cart')])
-            prevCartItems.push(data)
-            console.log(prevCartItems)
+            setData(prevCartItems)
+            const item = ([{ 'itemID': id, 'categoryID': category }])
+            const newItem = ([{data, item}])
+            setData2(newItem)
+            console.log('test', data2)
             /*const prevCartItems = JSON.parse(localStorage.getItem('Cart'))
             const full = null //prevCartItems.unshift({ 'itemId': id, 'categoryId': category });
             console.log('prevCartItems', prevCartItems)
@@ -63,8 +64,8 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
                             <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
                             <h2>{d.name}</h2>
                             <p>{d.description} el id: {d.id}</p>
-                            {/*<button onClick={() => addToCart(d.id, d.category)}>Añadir al carrito</button>*/}
-                            <button onClick={handleClick([{ id: d.id, category: d.category }])}>Añadir al carrito</button>
+                            <button onClick={() => addToCart(d.id, d.category)}>Añadir al carrito</button>
+                            {/*<button onClick={handleClick([{ id: d.id, category: d.category }])}>Añadir al carrito</button>*/}
                         </section>
                     ))
                 }
