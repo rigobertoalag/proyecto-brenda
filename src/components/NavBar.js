@@ -2,17 +2,19 @@ import React, {useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function NavBar(dataItems) {
-console.log('desde dataItems', dataItems)
     /** */
-    const data = [dataItems]
+    const data = dataItems
+
+    const itemsID = localStorage.getItem('Cart')
+    //const itemsCount = itemsID.length 
+    //console.log('desde nav: ', itemsCount)
 
     function cachingData(){
         if(!data.length === 0){
             alert('No hay nada en el carrito')
         }else{
-            localStorage.setItem('Cart', JSON.stringify({dataItems}))
+            localStorage.setItem('Cart', JSON.stringify(data))
             alert('se añadio')
-            console.log('desde la funcion: ', data)
         }
     }
 
@@ -22,8 +24,9 @@ console.log('desde dataItems', dataItems)
     }
 
     const cart = localStorage.getItem('Cart');
-    console.log('desde data:', data)
-    console.log('desde cart:', JSON.stringify(cart))
+    const cart2 = JSON.parse(localStorage.getItem('Cart'))
+    //console.log('desde cart:', cart)
+    //console.log('desde cart2:', cart2)
     /** */
 
     let location = useLocation();

@@ -1,12 +1,28 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import NavBar from '../components/NavBar'
 
 export default function Grid({ dataItems, dataCategories, isItem }) {
 
-    const [cart, setCart] = useState([])
+    const [data, setData] = useState([])
 
-    //console.log('desde var cart:',cart)
+    function addToCart(id, category) {
+        const cartStorage = JSON.parse(localStorage.getItem('Cart'));
+        if (!cartStorage) {
+            const data = [{ 'itemId': id, 'categoryId': category }]
+            //setData({id, category})
+            localStorage.setItem('Cart', JSON.stringify(data))
+            console.log('stringify', data)
+        } else {
+            const prevCartItems = JSON.parse(localStorage.getItem('Cart'))
+            const full = prevCartItems.unshift({ 'itemId': id, 'categoryId': category });
+            console.log('prevCartItems', prevCartItems)
+            console.log('full', full)
+            //console.log(data)
+        }
+    }
+
+    const cartStorage = JSON.parse(localStorage.getItem('Cart'));
+    console.log(cartStorage)
 
     if (dataCategories) {
         return (
@@ -31,14 +47,13 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
     } else {
         return (
             <div>
-                <NavBar dataItems={cart}/>
                 {
                     dataItems.map((d) => (
                         <section key={d.id}>
                             <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
                             <h2>{d.name}</h2>
                             <p>{d.description} el id: {d.id}</p>
-                            <button onClick={()=>setCart(d.id)}>Añadir al carrito</button>
+                            <button onClick={() => addToCart(d.id, d.category)}>Añadir al carrito</button>
                         </section>
                     ))
                 }

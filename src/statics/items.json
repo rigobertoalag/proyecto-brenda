@@ -4,13 +4,29 @@
             "id": 1,
             "name": "test item 1",
             "description": "La descripcion va aqui 1",
-            "img": "https://picsum.photos/650/650"
+            "img": "https://picsum.photos/650/650",
+            "category": 1
         },
         {
             "id": 2,
             "name": "test item 2",
             "description": "La descripcion va aqui 2",
-            "img": "https://picsum.photos/650/650"
+            "img": "https://picsum.photos/650/650",
+            "category": 1
+        },
+        {
+            "id": 3,
+            "name": "test item 3",
+            "description": "La descripcion va aqui 3",
+            "img": "https://picsum.photos/650/650",
+            "category": 2
+        },
+        {
+            "id": 4,
+            "name": "test item 4",
+            "description": "La descripcion va aqui 4",
+            "img": "https://picsum.photos/650/650",
+            "category": 2
         }
     ]
 }
