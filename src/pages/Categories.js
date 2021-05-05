@@ -6,7 +6,7 @@ import Grid from '../components/Grid'
 export default function Categories() {
     return (
         <main>
-            <Grid data={category} />
+            <Grid dataCategories={category} />
         </main>
     )
 }
