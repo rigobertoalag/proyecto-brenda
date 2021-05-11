@@ -1,38 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function NavBar(dataItems) {
-    /** */
-    const data = dataItems
-
-    const itemsID = localStorage.getItem('Cart')
-    //const itemsCount = itemsID.length 
-    //console.log('desde nav: ', itemsCount)
-
-    function cachingData(){
-        if(!data.length === 0){
-            alert('No hay nada en el carrito')
-        }else{
-            localStorage.setItem('Cart', JSON.stringify(data))
-            alert('se añadio')
-        }
-    }
-
-    function cachingDelete(){
-        localStorage.removeItem('Cart')
-        alert('Se borro')
-    }
-
-    const cart = localStorage.getItem('Cart');
-    const cart2 = JSON.parse(localStorage.getItem('Cart'))
-    //console.log('desde cart:', cart)
-    //console.log('desde cart2:', cart2)
-    /** */
 
     let location = useLocation();
 
     function ShowCart() {
-        if (location.pathname === '/categories' || location.pathname === '/items') {
+        if (location.pathname === '/categories' || location.pathname.includes('/items/') ){
             return (
                     <div style={{ position: "relative", float: "right", margin: "0.5rem 1rem" }}>
                         <Link to='/cart'>
@@ -49,8 +23,6 @@ export default function NavBar(dataItems) {
         <div className="topnav" id="myTopnav">
             <Link to='/'><p className="active">Inicio</p></Link>
             <ShowCart />
-            <button onClick={cachingData}>Ver carrito</button>
-            <button onClick={cachingDelete}>Test eliminar</button>
         </div>
     )
 }

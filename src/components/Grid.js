@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom'
 
 export default function Grid({ dataItems, dataCategories, isItem }) {
 
-    function addToCart(id, category) {
+    function addToCart(id) {
         const cartStorage = JSON.parse(localStorage.getItem('Cart'));
         if (!cartStorage) {
-            const item = ([{ 'itemID': id, 'categoryID': category }])
+            const item = ([{ 'itemID': id }])
             localStorage.setItem('Cart', JSON.stringify(item))
         } else {
             const prevItem = JSON.parse(localStorage.getItem('Cart'))
             console.log('previtem', prevItem)
 
-            const newItem = ([{ 'itemID': id, 'categoryID': category }])
+            const newItem = ([{ 'itemID': id }])
             console.log(newItem)
 
             Array.prototype.push.apply(prevItem, newItem);
-            console.log('desde array proto',prevItem)
+            console.log('desde array proto', prevItem)
 
             localStorage.setItem('Cart', JSON.stringify(prevItem))
         }
@@ -31,14 +31,16 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
                 {
                     dataCategories.map((d) => (
                         <section key={d.id}>
-                            <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
+                            <img src={d.image} alt={d.name} style={{ width: "100%" }} className="section-img" />
                             <h2>{d.name}</h2>
                             <p>{d.description}</p>
                             {
                                 isItem ?
                                     <Link to='/items#'><a className="info-link" onClick={() => alert('Se añadio al carrito')}>Añadir al carrito</a></Link>
                                     :
-                                    <Link to='/items'><a className="info-link">Ver mas..</a></Link>
+                                    <Link to={{
+                                        pathname: "/items/" + d.id
+                                    }}><a className="info-link">Ver mas..</a></Link>
                             }
                         </section>
                     ))
@@ -54,7 +56,7 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
                             <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
                             <h2>{d.name}</h2>
                             <p>{d.description} el id: {d.id}</p>
-                            <button onClick={() => addToCart(d.id, d.category)}>Añadir al carrito</button>
+                            <button onClick={() => addToCart(d.id)}>Añadir al carrito</button>
                         </section>
                     ))
                 }

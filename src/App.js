@@ -28,7 +28,7 @@ function App() {
               <Categories />
             </Route>
 
-            <Route path="/items">
+            <Route path="/items/:cat_id">
               <Items />
             </Route>
 
