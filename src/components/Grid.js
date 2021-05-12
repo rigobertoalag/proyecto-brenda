@@ -3,27 +3,38 @@ import { Link } from 'react-router-dom'
 
 export default function Grid({ dataItems, dataCategories, isItem }) {
 
-    function addToCart(id) {
+    function addToCart(id,name,description,img,category_id,user_id,created_at,updated_at) {
         const cartStorage = JSON.parse(localStorage.getItem('Cart'));
         if (!cartStorage) {
-            const item = ([{ 'itemID': id }])
+            const item = ([{ 
+                'itemID': id,
+                "name": name,
+                "description": description,
+                "img": img,
+                "category_id": category_id,
+                "user_id": user_id,
+                "created_at": created_at,
+                "updated_at": updated_at
+            }])
             localStorage.setItem('Cart', JSON.stringify(item))
         } else {
             const prevItem = JSON.parse(localStorage.getItem('Cart'))
-            console.log('previtem', prevItem)
-
-            const newItem = ([{ 'itemID': id }])
-            console.log(newItem)
-
+            const newItem = ([{ 
+                'itemID': id ,
+                "name": name,
+                "description": description,
+                "img": img,
+                "category_id": category_id,
+                "user_id": user_id,
+                "created_at": created_at,
+                "updated_at": updated_at
+            }])
             Array.prototype.push.apply(prevItem, newItem);
-            console.log('desde array proto', prevItem)
-
             localStorage.setItem('Cart', JSON.stringify(prevItem))
         }
     }
 
     const cartStorage = JSON.parse(localStorage.getItem('Cart'));
-    console.log('ya convertido', cartStorage)
 
     if (dataCategories) {
         return (
@@ -56,7 +67,7 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
                             <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
                             <h2>{d.name}</h2>
                             <p>{d.description} el id: {d.id}</p>
-                            <button onClick={() => addToCart(d.id)}>Añadir al carrito</button>
+                            <button onClick={() => addToCart(d.id,d.name,d.description,d.img,d.category_id,d.user_id,d.created_at,d.updated_at)}>Añadir al carrito</button>
                         </section>
                     ))
                 }
