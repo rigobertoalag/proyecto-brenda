@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 export default function Cart() {
     const [cartItems, setCartItems] = (useState(JSON.parse(localStorage.getItem('Cart'))))
     console.log('cartItems desde el carrito', cartItems)
 
-    function cachingDelete(){
+    function cachingDelete() {
         localStorage.removeItem('Cart')
         setCartItems('')
         alert('Se borro')
@@ -15,15 +16,16 @@ export default function Cart() {
         return (
             <main>
                 {
-                    cartItems.map((c, i) => (
-                        <div key={i}>
-                            <li>{c.itemID}</li>
-                            <li>{c.categoryID}</li>
+                    cartItems.map((c) => (
+                        <div key={c.itemId}>
+                            <li>{c.img}</li>
+                            <li>{c.name}</li>
+                            <li>{c.description}</li>
                         </div>
                     ))
                 }
                 <button onClick={cachingDelete}>Limpiar carrito</button>
-                <button onClick={()=>alert('Se envio por whats :)')}>Compartir</button>
+                <button onClick={() => alert('Se envio por whats :)')}>Compartir</button>
             </main>
         )
     } else {
