@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import { PlusCircleIcon } from '@heroicons/react/outline'
+
 export default function Grid({ dataItems, dataCategories, isItem }) {
 
     function addToCart(id,name,description,img,category_id,user_id,created_at,updated_at) {
@@ -41,19 +43,25 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
             <div>
                 {
                     dataCategories.map((d) => (
-                        <section key={d.id}>
-                            <img src={d.image} alt={d.name} style={{ width: "100%" }} className="section-img" />
-                            <h2>{d.name}</h2>
-                            <p>{d.description}</p>
-                            {
-                                isItem ?
-                                    <Link to='/items#'><a className="info-link" onClick={() => alert('Se añadio al carrito')}>Añadir al carrito</a></Link>
-                                    :
-                                    <Link to={{
-                                        pathname: "/items/" + d.id
-                                    }}><a className="info-link">Ver mas..</a></Link>
-                            }
-                        </section>
+                        <div className="max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden mt-5" key={d.id}>
+                        <div>
+                            <img src="https://cdn.pixabay.com/photo/2016/05/24/16/48/mountains-1412683_1280.png" alt="montaña" />
+                            {/*<img src={d.image} alt={d.name} style={{ width: "100%" }} className="section-img" />*/}
+                        </div>
+                        <div className="p-3 space-y-3">
+                            <h3 className="text-gray-700 font-semibold text-md">
+                                {d.name}
+                        </h3>
+                            <p className="text-sm text-gray-900 leading-sm">
+                                {d.description}
+                        </p>
+                        </div>
+                        <Link to={{ pathname: '/items/' + d.id}}>
+                            <button className="bg-gray-600 w-full flex justify-center py-2 text-white font-semibold transition duration-300 hover:bg-gray-400 mb-1">
+                                VER MAS  <PlusCircleIcon className="h-6 w-auto sm:h-6 ml-1" />
+                            </button>
+                        </Link>
+                    </div>
                     ))
                 }
             </div>
@@ -63,12 +71,25 @@ export default function Grid({ dataItems, dataCategories, isItem }) {
             <div>
                 {
                     dataItems.map((d) => (
-                        <section key={d.id}>
-                            <img src={d.img} alt={d.name} style={{ width: "100%" }} className="section-img" />
-                            <h2>{d.name}</h2>
-                            <p>{d.description} el id: {d.id}</p>
-                            <button onClick={() => addToCart(d.id,d.name,d.description,d.img,d.category_id,d.user_id,d.created_at,d.updated_at)}>Añadir al carrito</button>
-                        </section>
+                        <div className="max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden mt-5" key={d.id}>
+                        <div>
+                            <img src="https://cdn.pixabay.com/photo/2016/05/24/16/48/mountains-1412683_1280.png" alt="montaña" />
+                            {/*<img src={d.image} alt={d.name} style={{ width: "100%" }} className="section-img" />*/}
+                        </div>
+                        <div className="p-3 space-y-3">
+                            <h3 className="text-gray-700 font-semibold text-md">
+                                {d.name}
+                        </h3>
+                            <p className="text-sm text-gray-900 leading-sm">
+                                {d.description}
+                        </p>
+                        </div>
+                        <button 
+                        onClick={() => addToCart(d.id,d.name,d.description,d.img,d.category_id,d.user_id,d.created_at,d.updated_at)}
+                        className="bg-gray-600 w-full flex justify-center py-2 text-white font-semibold transition duration-300 hover:bg-gray-400 mb-1">
+                            AÑADIR AL CARRITO  <PlusCircleIcon className="h-6 w-auto sm:h-6 ml-1" />
+                        </button>
+                    </div>
                     ))
                 }
             </div>
