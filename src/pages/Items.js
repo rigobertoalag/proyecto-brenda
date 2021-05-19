@@ -7,27 +7,20 @@ import {
 import Grid from '../components/Grid'
 
 export default function Items() {
-
-    let { cat_id } = useParams();
-    console.log('valor del useparams', cat_id);
-
+    const { cat_id } = useParams();
     const [items, setItems] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
                 'http://localhost:8000/api/item/' + cat_id,
             );
-
             setItems(result.data);
         };
-
         fetchData();
     }, []);
-
     return (
-        <main>
+        <div className="w-screen h-screen justify-center bg-gray-100">
             <Grid dataItems={items} isItem='1' />
-        </main>
+        </div>
     )
 }

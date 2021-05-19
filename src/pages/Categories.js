@@ -19,8 +19,8 @@ export default function Categories() {
     }, []);
 
     return (
-        <main>
+        <div className="w-screen h-screen justify-center bg-gray-100">
             <Grid dataCategories={cat} />
-        </main>
+        </div>
     )
 }

@@ -8,16 +8,17 @@ import {
 
 
 import HomePage from './pages/HomePage'
-import NavBar from './components/NavBar'
+import Header from './components/Header'
 import Categories from './pages/Categories'
 import Items from './pages/Items'
 import Cart from './pages/Cart'
+import Test from './pages/Test'
 
 function App() {
   return (
     <div>
       <Router>
-        <NavBar />
+        <Header />
           <Switch>
 
             <Route exact path="/">
@@ -34,6 +35,10 @@ function App() {
 
             <Route path="/cart">
               <Cart />
+            </Route>
+
+            <Route path="/test">
+              <Test />
             </Route>
 
           </Switch>
