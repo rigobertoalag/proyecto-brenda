@@ -17,7 +17,7 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
         progress: undefined,
     });
 
-    function addToCart(id, name, description, img, category_id, user_id, created_at, updated_at) {
+    function AddToCart(id, name, description, img, category_id, user_id, created_at, updated_at) {
         const cartStorage = JSON.parse(localStorage.getItem('Cart'));
         if (!cartStorage) {
             const item = ([{
@@ -50,7 +50,6 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
             notify()
         }
     }
-
 
     if (dataCategories) {
         return (
@@ -120,7 +119,8 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
                                 </p>
                             </div>
                             <button
-                                onClick={() => addToCart(d.id, d.name, d.description, d.img, d.category_id, d.user_id, d.created_at, d.updated_at)}
+                                //onClick={() => addToCart(d.id, d.name, d.description, d.img, d.category_id, d.user_id, d.created_at, d.updated_at)}
+                                onClick={()=>{AddToCart(d.id, d.name, d.description, d.img, d.category_id, d.user_id, d.created_at, d.updated_at)}}
                                 className="bg-gray-600 w-full flex justify-center py-2 text-white font-semibold transition duration-300 hover:bg-gray-400 mb-1 sm:text-xs md:text-xs lg:text-xs">
                                 AÑADIR AL CARRITO <PlusCircleIcon className="h-6 w-auto sm:h-6 ml-1" />
                             </button>
