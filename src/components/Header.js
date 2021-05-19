@@ -14,10 +14,8 @@ export default function Header() {
         useEffect(() => {
             if (!cartStorage) {
                 setItemCount(0)
-                console.log('nada en el carrito')
             } else {
                 const numItems = cartStorage.length
-                console.log('carrito lleno con:', numItems)
                 setItemCount(numItems)
             }
         })

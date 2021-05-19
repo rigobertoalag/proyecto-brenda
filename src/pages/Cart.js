@@ -5,7 +5,6 @@ import WP from '../statics/whatsapp-xxl.png';
 
 export default function Cart() {
     const [cartItems, setCartItems] = (useState(JSON.parse(localStorage.getItem('Cart'))))
-    console.log('cartItems desde el carrito', cartItems)
     function cachingDelete() {
         localStorage.removeItem('Cart')
         setCartItems('')
