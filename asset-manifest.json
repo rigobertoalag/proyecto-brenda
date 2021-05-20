@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/proyecto-brenda/static/css/main.ba91b4c8.chunk.css",
+    "main.js": "/proyecto-brenda/static/js/main.130e0311.chunk.js",
+    "main.js.map": "/proyecto-brenda/static/js/main.130e0311.chunk.js.map",
+    "runtime-main.js": "/proyecto-brenda/static/js/runtime-main.10df9ceb.js",
+    "runtime-main.js.map": "/proyecto-brenda/static/js/runtime-main.10df9ceb.js.map",
+    "static/css/2.04404071.chunk.css": "/proyecto-brenda/static/css/2.04404071.chunk.css",
+    "static/js/2.6258f727.chunk.js": "/proyecto-brenda/static/js/2.6258f727.chunk.js",
+    "static/js/2.6258f727.chunk.js.map": "/proyecto-brenda/static/js/2.6258f727.chunk.js.map",
+    "index.html": "/proyecto-brenda/index.html",
+    "static/css/2.04404071.chunk.css.map": "/proyecto-brenda/static/css/2.04404071.chunk.css.map",
+    "static/css/main.ba91b4c8.chunk.css.map": "/proyecto-brenda/static/css/main.ba91b4c8.chunk.css.map",
+    "static/js/2.6258f727.chunk.js.LICENSE.txt": "/proyecto-brenda/static/js/2.6258f727.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10df9ceb.js",
+    "static/css/2.04404071.chunk.css",
+    "static/js/2.6258f727.chunk.js",
+    "static/css/main.ba91b4c8.chunk.css",
+    "static/js/main.130e0311.chunk.js"
+  ]
+}
