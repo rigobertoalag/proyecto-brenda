@@ -14,7 +14,7 @@ export default function Cart() {
 
     const [link, setLink] = useState()
     useEffect(()=>{
-        const data = cartItems.map(d => [' Name: ' + d.name  + ' Price: ' + d.itemID])
+        const data = cartItems.map(d => [' Nombre: ' + d.name  + ' Precio: ' + d.itemID])
         const values = data.toString()
         const link = 'https://api.whatsapp.com/send?text=' + values
 
