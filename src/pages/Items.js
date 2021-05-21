@@ -12,7 +12,7 @@ export default function Items() {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:8000/api/item/' + cat_id,
+                'http://cms-ds.herokuapp.com/api/item/' + cat_id,
             );
             setItems(result.data);
         };
