@@ -82,7 +82,7 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
                     dataCategories.map((d) => (
                         <div className="max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden mt-5" key={d.id}>
                             <div>
-                                <img src={'http://localhost:8000/storage/image/' + d.image} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
+                                <img src={'https://picsum.photos/900/900'} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
                             </div>
                             <div className="p-3 space-y-3">
                                 <h3 className="text-gray-700 font-semibold text-md">
@@ -110,7 +110,7 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
                     dataCart.map((d) => (
                         <div className="max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden mt-5" key={d.itemID}>
                             <div>
-                                <img src={'http://localhost:8000/storage/image/' + d.img} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
+                                <img src={'https://picsum.photos/900/900'} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
                             </div>
                             <div className="p-3 space-y-3">
                                 <h3 className="text-gray-700 font-semibold text-md">
@@ -132,7 +132,7 @@ export default function Grid({ dataItems, dataCategories, isItem, dataCart }) {
                     dataItems.map((d) => (
                         <div className="max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden mt-5" key={d.id}>
                             <div>
-                                <img src={'http://localhost:8000/storage/image/' + d.img} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
+                                <img src={'https://picsum.photos/900/900'} alt={d.name} style={{ width: "100%", height: '7rem' }} className="section-img" />
                             </div>
                             <div className="p-3 space-y-3">
                                 <h3 className="text-gray-700 font-semibold text-md">

@@ -9,7 +9,7 @@ export default function Categories() {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:8000/api/cat',
+                'http://cms-ds.herokuapp.com/api/cat',
             );
 
             setCat(result.data);
